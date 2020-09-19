@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+ <head>
+  <meta charset="utf-8">
+  <title>どこつぶ</title>
+ </head>
+ <body>
+  <h1>どこつぶメイン</h1>
+  <p>
+   <span th:text="${user.name}"></span>さん、ログイン中
+   <a href="/Logout">ログアウト</a>
+  </p>
+  <p><a href="/Main">更新</a></p>
+  <form action="/Main" method="post">
+   <input type="text" name="text">
+   <input type="submit" value="つぶやく">
+  </form>
+  <div th:if="${errorMsg != null}"><span th:text="${errorMsg}"></span></div>
+  <div th:each="mutter : ${mutters}">
+   <p th:text="${mutter.name} + ':' + ${mutter.text}"></p>
+  </div>
+ </body>
+</html>

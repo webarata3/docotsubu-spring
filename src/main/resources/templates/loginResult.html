@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+ <head>
+  <meta charset="utf-8">
+  <title>どこつぶ</title>
+ </head>
+ <body>
+  <h1>どこつぶログイン</h1>
+  <div th:if="${user}">
+   <p>ログインに成功しました</p>
+   <p th:text="'ようこそ' + ${user.name} + 'さん'"></p>
+   <a href="/Main">つぶやき投稿・閲覧へ</a>
+  </div>
+  <div th:if="${user == null}">
+   <p>ログインに失敗しました</p>
+   <a href="/">TOPへ</a>
+  </div>
+ </body>
+</html>
